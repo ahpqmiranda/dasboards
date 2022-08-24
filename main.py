@@ -14,10 +14,12 @@ path = './data/Airbnb/Airbnb_Open_Data.csv'
 df = pd.read_csv(path, low_memory=False)
 data_df = pd.DataFrame(df)
 # headers = list(data_df.columns)
-headers = ['id', 'host_name', 'neighbourhood', 'neighbourhood_group', 'room_type', 'country', 'instant_bookable', 'cancellation_policy', 'Construction year', 'price', 'service fee', 'minimum nights', 'number of reviews', 'last review', 'reviews per month', 'review rate number']
+headers = {'id', 'host_name', 'neighbourhood', 'neighbourhood_group', 'room_type', 'country', 'instant_bookable',
+           'cancellation_policy', 'Construction year', 'price', 'service fee', 'minimum nights', 'number of reviews',
+           'last review', 'reviews per month', 'review rate number'}
 worksheet_df = pd.DataFrame(data_df, columns=headers)
 
-fig = plt.figure(figsize=(12,8))
+fig = plt.figure(figsize=(12, 8))
 plt.subplots()
 
 
@@ -29,7 +31,6 @@ def flask_interface():
         html.H1('Preço por Bairro'),
         dcc.Graph(figure=fig)
     ])
-
 
 
 '''
